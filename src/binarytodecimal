@@ -10,9 +10,10 @@ let bintodec = new TextView({
 contentView.append(
   <TextInput top={24} left ='20%' right='20%'
   message='Syötä binääriluku'
+ //Enteriä painamalla syöttämäsi binääriluku muntuu desimaaliluvuksi
   onAccept={handleAccept}/>
 );
-
+//Nappi, mitä painamalla syöttämäsi binääriluku muntuu desimaaliluvuksi. (Tosin nyt se toimii vain visuaalisena elementtinä, koska en saanut sitä toimimaan.)
 new Button({
   top: 'prev() 16', left: 140, right: 140,
   text: 'Paina!'
