@@ -1,0 +1,33 @@
+import {TextView, TextInput,contentView} from 'tabris';
+
+//tekstikenttä jossa näytetään muunnettu binääriluku
+let bintodec = new TextView({
+  centerX: 0, top: 100,
+  font: "24px"
+}).appendTo(contentView);
+
+//input kenttä johon käyttäjä syöttää binääriluvun
+contentView.append(
+  <TextInput top={24} left ='20%' right='20%'
+  message='Syötä binääriluku'
+  onAccept={handleAccept}/>
+);
+
+// kun luku on syötetty
+function handleAccept(ev) {
+  //poimitaan usertext muuttujan käyttäjän syöttämä teksti
+  var userinput = ev.text;
+  
+  // käntää binäärilubun desimaaliksi
+  function bin2dec(num){
+    return num.split('').reverse().reduce(function(x, y, i){
+      return (y === '1') ? x + Math.pow(2, i) : x;
+    }, 0);
+  }
+  
+  //käännetty luku sijoitetaan binarytodecimal muuttujaan
+  var binarytodecimal = bin2dec(userinput);
+  
+  //näytä käännetty luku tekstiboxissa.
+  bintodec.set({text: binarytodecimal});
+}
