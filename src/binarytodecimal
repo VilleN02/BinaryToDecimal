@@ -13,6 +13,12 @@ contentView.append(
   onAccept={handleAccept}/>
 );
 
+new Button({
+  top: 'prev() 16', left: 140, right: 140,
+  text: 'Paina!'
+}).onSelect(() => handleAccept
+  .appendTo(contentView);
+  
 // kun luku on syötetty
 function handleAccept(ev) {
   //poimitaan usertext muuttujan käyttäjän syöttämä teksti
